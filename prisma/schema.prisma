@@ -6,6 +6,93 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  name String
+  email String @unique
+  cpf String
+  phone String
+  birthDate DateTime
+  description String @db.Text
+  typeAccount type_account_options
+  isSaler Boolean
+  password String
+  isActive Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  address Address?
+  comments Comment[]
+  announcement Announcement[]
+}
+
+enum type_account_options{
+  buyer
+  advertiser
+}
+
+enum type_announcement_options{
+  sale
+  auction
+}
+
+enum type_vehicle_options{
+  car
+  motorcycle
+}
+
+model Address {
+  id Int @id @default(autoincrement())
+  cep String
+  state String
+  city String
+  street String
+  number Int
+  complement String
+  user User @relation(fields: [userId], references: [id])
+  userId Int @unique
+}
+
+model Comment {
+  id Int @id @default(autoincrement())
+  text String @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user User @relation(fields: [userId], references: [id])
+  userId Int
+  intermediarys Intermediary[]
+}
+
+model Announcement {
+  id Int @id @default(autoincrement())
+  typeAnnouncement type_announcement_options
+  title String
+  year DateTime
+  mileage Int
+  price Int
+  description String @db.Text
+  typeVehicle type_vehicle_options
+  user User @relation(fields: [userId], references: [id])
+  userId Int
+  intermediarys Intermediary[]
+  announcementImgs AnnouncementImages[]
+}
+
+model Intermediary{
+  id Int @id @default(autoincrement())
+  announcement Announcement @relation(fields: [announcementId], references: [id])
+  announcementId Int
+  comment Comment @relation(fields: [commentId], references: [id])
+  commentId Int
+}
+
+model AnnouncementImages{
+  id Int @id @default(autoincrement())
+  coverImage String @db.Text
+  imageGallery String[]
+  announcement Announcement @relation(fields: [announcementId], references: [id])
+  announcementId Int
 }
