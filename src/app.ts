@@ -1,11 +1,9 @@
-import { Request, Response, NextFunction } from 'express';
 /*import { AppError } from './errors/appError';*/
+import express from 'express';
+import AnnouncementRoutes from './routes/AnnouncementRoutes'
 
-const express = require('express');
 const app = express();
-const {PrismaClient} = require('@prisma/client');
-const prisma = new PrismaClient();
-const { Announcement } = prisma
+const PORT = 3000
 
 app.use(express.json())
 
@@ -26,21 +24,8 @@ app.use(express.json())
     });
   });*/
 
-app.post('/announcements', async (req: Request, res: Response) => {
-  try{
-    const {body} = req
-    
-    const newAnnouncement = await Announcement.create({ data: body})
+app.use('/announcements', AnnouncementRoutes);
 
-    res.status(201).json(newAnnouncement);
-  }catch(error){
-
-    console.error('Erro ao criar novo anúncio:', error);
-
-    res.status(500).json({error: 'Erro ao criar novo anúncio'});
-  }
-})
-
-app.listen(3000, () => {
-  console.log('Servidor iniciado na porta 3000');
+app.listen(PORT, () => {
+  console.log(`Servidor iniciado na porta ${PORT}`);
 });
