@@ -45,46 +45,55 @@ Comércio eletrônico de veículos: Compra e venda de carros e motos online
 
 Visão Geral das tecnologias usadas no projeto.
 
-- [React](https://reactjs.org)
-- [Vite](https://vitejs.dev)
+- [NodeJS](https://nodejs.org/en/)
+- [Express](https://expressjs.com/pt-br/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Material Icon MUI](https://mui.com)
-- [yup](https://www.npmjs.com/package/yup)
-- [axios](https://react-hook-form.com)
-- [react-router-dom](https://reactrouter.com)
-- [animate.css](https://animate.style)
-- [react-toastfy](https://www.npmjs.com/package/react-toastify)
-- [styled-components](https://www.styled-components.com)
-- [react-hook-form](https://react-hook-form.com)
-- [react-icons](https://react-icons.github.io/react-icons/search)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Prisma](https://www.prisma.io)
+- [Yup](https://www.npmjs.com/package/yup)
+- [Docker](https://docs.docker.com)
+- [Aws-sdk](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html)
+- [Bcryptjs](https://www.npmjs.com/package/bcryptjs)
+- [Multer-s3](https://www.npmjs.com/package/multer-s3)
+- [uuid-validate](https://www.npmjs.com/package/uuid-validate)
+- [reflect-metadata](https://github.com/rbuckton/reflect-metadata)
+- [pg](https://www.postgresql.org/docs/)
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+- [express-async-errors](https://expressjs.com/pt-br/)
+- [dotenv](https://www.npmjs.com/package/dotenv)
 
 <a name="install"></a>
 
 ## 4. Instalação e uso
 
 ### 4.1 Requisitos:
-- React a partir da versão 18.0
+- NodeJs a partir da versão 16.14.1
 - Gerenciador de pacotes yarn ou npm
-- Rodar a aplicação Back-end localmente
+- Banco de dados PostgreSQL
 
 ### 4.2 Instalação
-4.2.1 - Após o clone no repositório para adicionar todas as dependências do package json execute o comando: 
+4.2.1 - Crie um banco de dados chamado vibe_database no PostgreSQL
+4.2.2 - Após o clone no repositório para adicionar todas as dependências do package json execute o comando: 
 `yarn install` 
 
-4.2.2 - Para rodar projeto utilize o comando `yarn dev` no terminal, caso de tudo certo receberá uma mensagem parecida com essa:
+4.2.3 - Crie um arquivo na raiz do projeto chamado .env e faça as configurações das variáveis de ambiente com base no .env.example do projeto
+```
+DATABASE_URL="postgres://user:password@localhost:5432/postgres_db"  
+SECRET_KEY=
+```
+4.2.4 - Para rodar projeto utilize o comando `yarn dev` no terminal, caso de tudo certo receberá uma mensagem parecida com essa:
 
 ```
 [INFO] 17:23:18 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.1, typescript ver. 4.8.4)
-VITE v4.0.4  ready in 4915 ms
-
-  ➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose  
-  ➜  press h to show help
+query: SELECT * FROM current_schema()
+query: CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
+query: SELECT version();
+Servidor executando.
 ```
+
 <a name="devs"></a>
 
 ## 5. Desenvolvedores
-
 
 [ Voltar para o topo ](#tabela-de-conteúdos)
 
