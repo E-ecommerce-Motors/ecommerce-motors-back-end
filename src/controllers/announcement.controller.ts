@@ -1,10 +1,29 @@
 import { Request, Response } from 'express';
-import { prisma } from '../../prisma';
+import { createAnnouncement } from '../services/announcement.service';
+import { AppError, handleError } from '../errors/appError';
 
-export const createAnnouncementController = async (req: Request, res: Response) => {
-    const { body } = req
+export async function createAnnouncementController(req: Request, res: Response) {
 
-    const newAnnouncement = await prisma.announcement.create({ data: body })
+    const { id, typeAnnouncement, title, year, mileage, price, description, typeVehicle, userId } = req.body;
 
-    res.status(201).json(newAnnouncement);
+    try {
+        const newAnnouncement = await createAnnouncement({
+            id,
+            typeAnnouncement,
+            title,
+            year,
+            mileage,
+            price,
+            description,
+            typeVehicle,
+            userId,
+        });
+
+        res.status(201).json(newAnnouncement);
+
+    } catch (err) {
+        if(err instanceof AppError){
+            handleError(err, res)
+        }
+    }
 }
