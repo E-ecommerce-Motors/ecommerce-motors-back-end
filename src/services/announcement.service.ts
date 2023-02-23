@@ -1,15 +1,16 @@
-import { PrismaClient, Announcement } from '@prisma/client';
+import { PrismaClient} from '@prisma/client';
+import { AnnouncementCreateInput } from '../interfaces/announcementCreateInput';
 
 const prisma = new PrismaClient();
 
-export const createAnnouncement = async (announcementData: Announcement) => {
+export const createAnnouncement = async (data: AnnouncementCreateInput) => {
     const newAnnouncement = await prisma.announcement.create({
-        data: announcementData,
+        data,
         include: {
-        user: true,
-        intermediarys: true,
-        announcementImgs: true,
+            announcementImgs: true,
+            intermediarys: true,
         },
-    });
-return newAnnouncement;
+    })
+
+    return newAnnouncement;
 }
