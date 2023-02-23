@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { createAnnouncement } from '../services/announcement.service';
-import { AppError, handleError } from '../errors/appError';
-import { uploadImageToS3 } from '../services/announcementImages.service';
-import { prisma } from "../../prisma/index";
+import { createAnnouncement } from '../../services/announcements/createAnnouncement.service';
+import { AppError, handleError } from '../../errors/appError';
+import { uploadImageToS3 } from '../../services/announcements/announcementImages.service';
+import { prisma } from "../../../prisma/index";
 
 export const createAnnouncementController = async (req: Request, res: Response) => {
     const { typeAnnouncement, title, year, mileage, price, description, typeVehicle, userId, intermediarys} = req.body;

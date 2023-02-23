@@ -1,5 +1,5 @@
 import { PrismaClient} from '@prisma/client';
-import { AnnouncementCreateInput } from '../interfaces/announcementCreateInput';
+import { AnnouncementCreateInput } from '../../interfaces/announcementCreateInput';
 
 const prisma = new PrismaClient();
 

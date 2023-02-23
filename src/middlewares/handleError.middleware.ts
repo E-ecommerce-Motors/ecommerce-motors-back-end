@@ -1,5 +1,5 @@
 import { AppError } from "../errors/appError"
-import { Request, Response, NextFunction, ErrorRequestHandler } from "express"
+import { ErrorRequestHandler } from "express"
 
 export const handleErrorMiddleware: ErrorRequestHandler = async (
     error,

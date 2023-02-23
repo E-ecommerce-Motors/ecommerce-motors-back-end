@@ -5,5 +5,4 @@ import { announcementRoutes } from "./announcement.routes"
 export const appRoutes = (app: Express) => {
     app.use("/announcements", announcementRoutes())
     app.use(handleErrorMiddleware)
-
 }
