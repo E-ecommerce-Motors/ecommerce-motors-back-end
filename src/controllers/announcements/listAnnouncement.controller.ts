@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { listAnnouncementService } from '../services/listAnnouncement.service';
+import { listAnnouncementService } from '../../services/announcements/listAnnouncement.service';
 
 export const listAnnouncementController = async (req: Request, res: Response) => {
     const announcements = await listAnnouncementService()

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { deleteAnnouncementService } from "../services/announcements/deleteAnnouncement.service";
+import { deleteAnnouncementService } from "../../services/announcements/deleteAnnouncement.service";
 
 export const deleteAnnouncementController = async (
   req: Request,
