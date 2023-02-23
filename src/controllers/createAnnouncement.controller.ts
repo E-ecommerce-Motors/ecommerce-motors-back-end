@@ -1,10 +1,15 @@
-import { Request, Response } from 'express';
-import { prisma } from '../../prisma';
+import { Request, Response } from "express";
+import { prisma } from "../../prisma";
 
-export const createAnnouncementController = async (req: Request, res: Response) => {
-    const { body } = req
+export const createAnnouncementController = async (
+  req: Request,
+  res: Response
+) => {
+  const { body } = req;
 
-    const newAnnouncement = await prisma.announcement.create({ data: body })
+  body.year = new Date(body.year);
 
-    res.status(201).json(newAnnouncement);
-}
+  const newAnnouncement = await prisma.announcement.create({ data: body });
+
+  res.status(201).json(newAnnouncement);
+};
