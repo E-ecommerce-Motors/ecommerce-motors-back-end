@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { createAnnouncementController } from "../controllers/createAnnouncement.controller";
+import { createAnnouncementController } from "../controllers/announcements/createAnnouncement.controller";
 import { idExist } from "../middlewares/ensure.middleware";
-import { listAnnouncementController } from "../controllers/listAnnouncement.controller";
-import { updateAnnouncementController } from "../controllers/updateAnnouncement.controller";
-import { deleteAnnouncementController } from "../controllers/deleteAnnouncement.controller";
+import { listAnnouncementController } from "../controllers/announcements/listAnnouncement.controller";
+import { updateAnnouncementController } from "../controllers/announcements/updateAnnouncement.controller";
+import { deleteAnnouncementController } from "../controllers/announcements/deleteAnnouncement.controller";
 
 const routes = Router();
 

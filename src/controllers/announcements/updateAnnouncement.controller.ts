@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { updateAnnouncementService } from "../services/announcements/updateAnnouncement.service";
+import { updateAnnouncementService } from "../../services/announcements/updateAnnouncement.service";
 
 export const updateAnnouncementController = async (
   req: Request,
