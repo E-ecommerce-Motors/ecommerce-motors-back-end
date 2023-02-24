@@ -1,7 +1,7 @@
 interface AnnouncementCreateInput {
     typeAnnouncement: type_announcement_options;
     title: string;
-    year: Date;
+    year: string;
     mileage: number;
     price: number;
     description: string;

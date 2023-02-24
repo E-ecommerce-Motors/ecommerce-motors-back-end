@@ -14,7 +14,7 @@ CREATE TABLE "User" (
     "email" TEXT NOT NULL,
     "cpf" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
-    "birthDate" TIMESTAMP(3) NOT NULL,
+    "birthDate" DATE NOT NULL,
     "description" TEXT NOT NULL,
     "typeAccount" "type_account_options" NOT NULL,
     "isSaler" BOOLEAN NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE "Announcement" (
     "id" SERIAL NOT NULL,
     "typeAnnouncement" "type_announcement_options" NOT NULL,
     "title" TEXT NOT NULL,
-    "year" TIMESTAMP(3) NOT NULL,
+    "year" TEXT NOT NULL,
     "mileage" INTEGER NOT NULL,
     "price" INTEGER NOT NULL,
     "description" TEXT NOT NULL,
@@ -98,7 +98,7 @@ ALTER TABLE "Address" ADD CONSTRAINT "Address_userId_fkey" FOREIGN KEY ("userId"
 ALTER TABLE "Comment" ADD CONSTRAINT "Comment_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Announcement" ADD CONSTRAINT "Announcement_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Announcement" ADD CONSTRAINT "Announcement_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Intermediary" ADD CONSTRAINT "Intermediary_announcementId_fkey" FOREIGN KEY ("announcementId") REFERENCES "Announcement"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
