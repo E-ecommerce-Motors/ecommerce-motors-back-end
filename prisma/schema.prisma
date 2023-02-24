@@ -16,7 +16,7 @@ model User {
   email String @unique
   cpf String
   phone String
-  birthDate DateTime @db.Date
+  birthDate String
   description String @db.Text
   typeAccount type_account_options
   isSaler Boolean

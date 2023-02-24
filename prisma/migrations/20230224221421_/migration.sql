@@ -14,7 +14,7 @@ CREATE TABLE "User" (
     "email" TEXT NOT NULL,
     "cpf" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
-    "birthDate" DATE NOT NULL,
+    "birthDate" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "typeAccount" "type_account_options" NOT NULL,
     "isSaler" BOOLEAN NOT NULL,
