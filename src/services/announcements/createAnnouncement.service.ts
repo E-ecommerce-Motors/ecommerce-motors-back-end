@@ -6,11 +6,11 @@ const prisma = new PrismaClient();
 export const createAnnouncement = async (data: AnnouncementCreateInput) => {
     const newAnnouncement = await prisma.announcement.create({
         data,
-        include: {
+        /*include: {
             announcementImgs: true,
             intermediarys: true,
-        },
-    })
+        },*/
+    });
 
     return newAnnouncement;
 }
