@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createAnnouncementController } from '../controllers/announcements/announcement.controller';
+import { createAnnouncementController } from '../controllers/announcements/createAnnouncement.controller';
 import { updateAnnouncementController } from '../controllers/announcements/updateAnnouncement.controller';
 import { deleteAnnouncementController } from '../controllers/announcements/deleteAnnouncement.controller';
 import { listAnnouncementController } from '../controllers/announcements/listAnnouncement.controller';

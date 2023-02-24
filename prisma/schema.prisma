@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      =  env("DATABASE_URL")
 }
 
 model User {
@@ -70,7 +70,7 @@ model Announcement {
   id Int @id @default(autoincrement())
   typeAnnouncement type_announcement_options
   title String
-  year DateTime
+  year String
   mileage Int
   price Int
   description String @db.Text

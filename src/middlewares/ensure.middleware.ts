@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { prisma } from "../../prisma";
+import { prisma } from "../utils/prisma";
 
 export const idExist = async (
   req: Request,
