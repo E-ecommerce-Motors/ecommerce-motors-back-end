@@ -1,7 +1,7 @@
-import { prisma } from "../../prisma"
+import { prisma } from "../../prisma";
 
 export const listAnnouncementService = async () => {
-    const announcements = await prisma.announcement.findMany()
+  const announcements = await prisma.announcement.findMany();
 
-    return announcements
-}
+  return announcements;
+};
