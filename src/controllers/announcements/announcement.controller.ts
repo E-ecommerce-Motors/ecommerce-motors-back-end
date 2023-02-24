@@ -5,11 +5,11 @@ import { uploadImageToS3 } from '../../services/announcements/announcementImages
 import { prisma } from "../../../prisma/index";
 
 export const createAnnouncementController = async (req: Request, res: Response) => {
-    const { typeAnnouncement, title, year, mileage, price, description, typeVehicle, userId, intermediarys} = req.body;
-    const images = req.files as Express.Multer.File[];
+    /*const { typeAnnouncement, title, year, mileage, price, description, typeVehicle, userId, intermediarys} = req.body;
+    const images = req.files as Express.Multer.File[];*/
 
     try {
-        const announcement = await createAnnouncement({
+        /*const announcement = await createAnnouncement({
             typeAnnouncement,
             title,
             year,
@@ -34,9 +34,10 @@ export const createAnnouncementController = async (req: Request, res: Response) 
             ...imageGalleryUrls.map((url) => ({ announcementId: announcement.id, coverImage: '', imageGallery: url })),
         ];
     
-        await prisma.announcementImages.createMany({ data: announcementImagesData });
-    
-        res.json(announcement);
+        await prisma.announcementImages.createMany({ data: announcementImagesData });*/
+        const announcement = await createAnnouncement(req.body)
+        
+        return res.status(201).json(announcement);
     } catch (err) {
         if(err instanceof AppError){
             handleError(err, res)
