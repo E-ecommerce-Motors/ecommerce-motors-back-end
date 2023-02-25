@@ -72,7 +72,7 @@ model Announcement {
   title String
   year String
   mileage Int
-  price Int
+  price Float
   description String @db.Text
   typeVehicle type_vehicle_options
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
