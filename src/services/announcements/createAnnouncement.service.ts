@@ -1,4 +1,4 @@
-import { AnnouncementCreateInput } from '../../interfaces/announcementCreateInput';
+import { AnnouncementCreateInput } from '../../interfaces/announcement';
 import { prisma } from '../../utils/prisma';
 
 export const createAnnouncementService = async (data: AnnouncementCreateInput) => {
