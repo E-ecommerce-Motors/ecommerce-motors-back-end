@@ -20,8 +20,7 @@ model User {
   description String @db.Text
   typeAccount type_account_options
   isSaler Boolean
-  password String
-  isActive Boolean
+  password String 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   address Address?
