@@ -19,7 +19,6 @@ CREATE TABLE "User" (
     "typeAccount" "type_account_options" NOT NULL,
     "isSaler" BOOLEAN NOT NULL,
     "password" TEXT NOT NULL,
-    "isActive" BOOLEAN NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -58,7 +57,7 @@ CREATE TABLE "Announcement" (
     "title" TEXT NOT NULL,
     "year" TEXT NOT NULL,
     "mileage" INTEGER NOT NULL,
-    "price" INTEGER NOT NULL,
+    "price" DOUBLE PRECISION NOT NULL,
     "description" TEXT NOT NULL,
     "typeVehicle" "type_vehicle_options" NOT NULL,
     "userId" INTEGER NOT NULL,
