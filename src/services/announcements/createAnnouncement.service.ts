@@ -4,10 +4,11 @@ import { prisma } from '../../utils/prisma';
 export const createAnnouncementService = async (data: AnnouncementCreateInput) => {
     const newAnnouncement = await prisma.announcement.create({
         data,
-        /*include: {
+        include: {
             announcementImgs: true,
             intermediarys: true,
-        },*/
+            user: true,
+        },
     });
 
     return newAnnouncement;
