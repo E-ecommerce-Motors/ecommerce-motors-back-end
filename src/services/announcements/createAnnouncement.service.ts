@@ -1,5 +1,5 @@
-import { AnnouncementCreateInput } from '../../interfaces/announcement';
-import { prisma } from '../../utils/prisma';
+import { AnnouncementCreateInput } from "../../interfaces/announcement";
+import { prisma } from "../../utils/prisma";
 
 export const createAnnouncementService = async (data: AnnouncementCreateInput) => {
     const newAnnouncement = await prisma.announcement.create({
@@ -10,6 +10,6 @@ export const createAnnouncementService = async (data: AnnouncementCreateInput) =
             user: true,
         },
     });
-
-    return newAnnouncement;
-}
+    
+  return newAnnouncement;
+};
