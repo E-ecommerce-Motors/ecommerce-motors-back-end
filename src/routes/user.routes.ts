@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { createUserController } from "../controllers/user/createuser.controller";
+import { deleteUserController } from "../controllers/user/deleteUser.controller";
 import { updateUserController } from "../controllers/user/updateUser.controller";
 import { idExist } from "../middlewares/ensure.middleware";
 import { handleErrorMiddleware } from "../middlewares/handleError.middleware";
@@ -14,9 +15,14 @@ export const userRoutes = () => {
   routes.patch(
     "/:id",
     verifyAuthUserMiddleware,
-    updateUserController,
-    handleErrorMiddleware
+    handleErrorMiddleware,
+    updateUserController
   );
+  routes.delete("/:id",
+  verifyAuthUserMiddleware,
+  handleErrorMiddleware,
+  deleteUserController
+)
 
   return routes;
 };

@@ -9,5 +9,5 @@ export const deleteAnnouncementController = async (
 
   await deleteAnnouncementService(Number(params.id));
 
-  res.status(201);
+  res.sendStatus(204);
 };
