@@ -5,6 +5,12 @@ interface announcement {
   price?: number;
   description?: string;
   typeVehicle?: "car" | "motorcycle";
+  announcementImgs?: {
+    create?: Array<{
+      coverImage?: string;
+      imageGallery?: string[];
+    }>;
+  };
 }
 
 interface Comment {

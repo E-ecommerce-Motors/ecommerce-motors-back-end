@@ -7,7 +7,10 @@ export const updateAnnouncementService = async (
 ) => {
   const updateAnnouncement = await prisma.announcement.update({
     where: { id },
-    data: data,
+    data,
+    include: {
+      announcementImgs: true,
+    },
   });
 
   return updateAnnouncement;
