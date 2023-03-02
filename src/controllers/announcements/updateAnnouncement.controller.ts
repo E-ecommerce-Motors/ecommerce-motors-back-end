@@ -7,8 +7,6 @@ export const updateAnnouncementController = async (
 ) => {
   const { body, params } = req;
 
-  body.year = new Date(body.year);
-
   const updatedAnnouncement = await updateAnnouncementService(
     body,
     Number(params.id)
