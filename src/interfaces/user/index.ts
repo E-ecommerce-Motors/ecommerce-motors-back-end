@@ -15,17 +15,13 @@ export interface IUserRequest {
 }
 
 export interface IUserUpdate {
+    id: number,
     name?: string,
     email?: string,
     cpf?: string,
     phone?: string,
     birthDate?: string,
     description?: string,
-    typeAccount?: type_account_options,
-    isSaler?: boolean,
-    password?: string,
-    createdAt?: Date,
-    updatedAt?: Date
 }
 
 export interface IUserCreateSchema {
