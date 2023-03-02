@@ -10,7 +10,6 @@ const routes = Router();
 
 export const announcementRoutes = () => {
   routes.post("", createAnnouncementController);
-  routes.post("/:id/comments", createCommentController);
   routes.patch("/:id", idExist, updateAnnouncementController);
   routes.delete("/:id", idExist, deleteAnnouncementController);
   routes.get("", listAnnouncementController);
