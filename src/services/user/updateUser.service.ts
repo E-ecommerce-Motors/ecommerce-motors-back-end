@@ -11,7 +11,7 @@ export const updateUserService = async (data: IUserRequest, userId: number) => {
   });
 
   if (findUser) {
-    throw new AppError("Email already exists");
+    throw new AppError("E-mail já está cadastrado");
   }
   const updateUser = await prisma.user.update({
     where: {

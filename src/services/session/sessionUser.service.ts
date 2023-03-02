@@ -13,10 +13,10 @@ export const sessionUserService = async ({ email, password }: IUserLogin) => {
     });
 
     if (!account) {
-        throw new AppError("Account not found", 403);
+        throw new AppError("Conta não encontrada", 403);
     }
     if (!bcrypt.compareSync(password, account.password)) {
-        throw new AppError("Wrong email/password", 403);
+        throw new AppError("E-mail ou senha incorretos", 403);
     }
 
     const token = jwt.sign(

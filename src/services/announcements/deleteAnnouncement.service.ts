@@ -5,5 +5,5 @@ export const deleteAnnouncementService = async (id: number) => {
     where: { id },
   });
 
-  return "sucessful deleted";
+  return "Deletado com sucesso!";
 };
