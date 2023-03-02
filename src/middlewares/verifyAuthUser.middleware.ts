@@ -15,7 +15,7 @@ export const verifyAuthUserMiddleware = (
             process.env.SECRET_KEY as string,
             (err: any, decoded: any) => {
                 if (!decoded || err) {
-                    throw new AppError("Invalid token", 401);
+                    throw new AppError("Token inválido", 401);
                 }
 
                 req.user = {
@@ -27,6 +27,6 @@ export const verifyAuthUserMiddleware = (
             }
         );
     } catch {
-        throw new AppError("Invalid token", 401);
+        throw new AppError("Token inválido", 401);
     }
 }

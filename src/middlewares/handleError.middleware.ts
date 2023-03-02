@@ -14,6 +14,6 @@ export const handleErrorMiddleware: ErrorRequestHandler = async (
     }
     console.log(error);
     return res.status(500).json({
-        message: "Internal server error",
+        message: "Erro do servidor interno",
     })
 }
