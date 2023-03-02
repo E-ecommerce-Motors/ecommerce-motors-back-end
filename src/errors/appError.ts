@@ -11,11 +11,3 @@ export class AppError extends Error {
     }
 }
 
-export const handleError = (err: AppError, resp: Response) => {
-    const { statusCode, message } = err;
-    return resp.status(statusCode).json({
-      status: "error",
-      statusCode,
-      message,
-    });
-  };

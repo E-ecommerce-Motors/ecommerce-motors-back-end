@@ -1,5 +1,5 @@
-import { announcement } from "../../interfaces/announcement";
 import { prisma } from "../../utils/prisma";
+import { announcement } from "../../interfaces/announcement";
 
 export const updateAnnouncementService = async (
   data: announcement,
