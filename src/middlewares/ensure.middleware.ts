@@ -15,7 +15,7 @@ export const idExist = async (
   });
 
   if (!announcement) {
-    res.status(404).json({ message: "Announcement not found" });
+    res.status(404).json({ message: "Anúncio não encontrado" });
   }
 
   next();

@@ -14,7 +14,7 @@ if (data.email) {
   });
 
   if (emailExists) {
-    throw new AppError("Email já está em uso", 400);
+    throw new AppError("E-mail já está cadastrado");
   }
 }
 

@@ -1,5 +1,5 @@
-import { announcement } from "../../interfaces/announcement";
 import { prisma } from "../../utils/prisma";
+import { announcement } from "../../interfaces/announcement";
 
 export const updateAnnouncementService = async (
   data: announcement,
@@ -7,7 +7,10 @@ export const updateAnnouncementService = async (
 ) => {
   const updateAnnouncement = await prisma.announcement.update({
     where: { id },
-    data: data,
+    data,
+    include: {
+      announcementImgs: true,
+    },
   });
 
   return updateAnnouncement;

@@ -9,7 +9,7 @@ export const updateUserController = async (
     const { body, params, user } = req;
     const userId = Number(params.id);
   
-    if (userId !== parseInt(user.id)) {
+    if (userId !== user.id) {
       throw new AppError("Unauthorized", 401);
     }
   

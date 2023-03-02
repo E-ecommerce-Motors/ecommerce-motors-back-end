@@ -5,6 +5,20 @@ interface announcement {
   price?: number;
   description?: string;
   typeVehicle?: "car" | "motorcycle";
+  announcementImgs?: {
+    update?: {
+      where: { id: number };
+      data: {
+        coverImage: string;
+        imageGallery: Array<string>;
+      };
+    };
+  };
+}
+
+interface Comment {
+  text: string;
+  userId: number;
 }
 
 type announcementRequired =
@@ -15,7 +29,7 @@ type announcementRequired =
   | "description"
   | "typeVehicle";
 
-export { announcement, announcementRequired };
+export { announcement, announcementRequired, Comment };
 
 interface AnnouncementCreateInput {
   typeAnnouncement: type_announcement_options;
@@ -29,22 +43,24 @@ interface AnnouncementCreateInput {
   intermediarys?: {
     create?: Array<{
       commentId: number;
-    }>
+    }>;
   };
   announcementImgs?: {
     create?: Array<{
       coverImage: string;
       imageGallery: string[];
-    }>
+    }>;
   };
 }
 
-type type_announcement_options =
-  "sale"
-"auction"
+type type_announcement_options = "sale";
+("auction");
 
-type type_vehicle_options =
-  "car"
-"motorcycle"
+type type_vehicle_options = "car";
+("motorcycle");
 
-export { AnnouncementCreateInput, type_announcement_options, type_vehicle_options }
+export {
+  AnnouncementCreateInput,
+  type_announcement_options,
+  type_vehicle_options,
+};

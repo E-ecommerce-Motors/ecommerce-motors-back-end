@@ -11,7 +11,7 @@ export const createUserService = async (data: IUserRequest) => {
     })
 
     if (findUser) {
-        throw new AppError('Email already exists')
+        throw new AppError('E-mail já está cadastrado')
     }
 
     const user = await prisma.user.create({

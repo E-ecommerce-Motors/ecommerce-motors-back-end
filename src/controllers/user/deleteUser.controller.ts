@@ -10,7 +10,7 @@ export const deleteUserController = async (
   const { params, user } = req;
   const userId = Number(params.id);
 
-  if (userId !== parseInt(user.id)) {
+  if (userId !== user.id) {
     throw new AppError("Unauthorized", 401);
   }
   await deleteUserService(Number(params.id));
