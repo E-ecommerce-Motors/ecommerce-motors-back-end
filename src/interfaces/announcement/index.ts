@@ -6,10 +6,13 @@ interface announcement {
   description?: string;
   typeVehicle?: "car" | "motorcycle";
   announcementImgs?: {
-    create?: Array<{
-      coverImage?: string;
-      imageGallery?: string[];
-    }>;
+    update?: {
+      where: { id: number };
+      data: {
+        coverImage: string;
+        imageGallery: Array<string>;
+      };
+    };
   };
 }
 
