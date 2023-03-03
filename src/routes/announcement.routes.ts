@@ -6,13 +6,15 @@ import { listAnnouncementController } from "../controllers/announcements/listAnn
 import { idExist } from "../middlewares/ensure.middleware";
 import { createCommentController } from "../controllers/comments/createComments.controller";
 import { retireAnnouncementController } from "../controllers/announcements/retireAnnouncement.controller";
+import { verifyAuthUserMiddleware } from "../middlewares/verifyAuthUser.middleware";
+
 
 const routes = Router();
 
 export const announcementRoutes = () => {
-  routes.post("", createAnnouncementController);
-  routes.patch("/:id", idExist, updateAnnouncementController);
-  routes.delete("/:id", idExist, deleteAnnouncementController);
+  routes.post("", verifyAuthUserMiddleware, createAnnouncementController);
+  routes.patch("/:id", verifyAuthUserMiddleware, idExist, updateAnnouncementController);
+  routes.delete("/:id", verifyAuthUserMiddleware, idExist, deleteAnnouncementController);
   routes.get("", listAnnouncementController);
   routes.get("/:id", retireAnnouncementController);
 
