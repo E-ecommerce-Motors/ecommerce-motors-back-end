@@ -5,7 +5,7 @@ import { handleErrorMiddleware } from "../middlewares/handleError.middleware";
 import { sessionRoutes } from "./session.routes";
 import { commentRoutes } from "./comments.routes";
 import { imagesRoutes } from "./imagesAnnouncement.routes";
-import { passwordRecoveryRoutes } from "./passwordRecovery.routes";
+import { recoveryPasswordRoutes } from "./recoveryPassword.routes";
 
 export const appRoutes = (app: Express) => {
   app.use("/announcements", announcementRoutes());
@@ -13,6 +13,6 @@ export const appRoutes = (app: Express) => {
   app.use("/session", sessionRoutes());
   app.use("/announcements", commentRoutes());
   app.use("/announcements", imagesRoutes());
-  app.use("/auth", passwordRecoveryRoutes)
+  app.use("/recovery", recoveryPasswordRoutes())
   app.use(handleErrorMiddleware);
 };

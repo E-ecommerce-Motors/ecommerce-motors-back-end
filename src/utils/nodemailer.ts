@@ -4,7 +4,7 @@ import { createTransport } from "nodemailer";
 import { AppError } from "../errors/AppError";
 import { IEmailRequest } from "../interfaces/email";
 
-const sendEmail = async ({ to, subject, html, text }: IEmailRequest) => {
+export const sendEmail = async ({ to, subject, html, text }: IEmailRequest) => {
   const transporter = createTransport({
     host: "smtp-mail.outlook.com",
     port: 587,
@@ -23,11 +23,10 @@ const sendEmail = async ({ to, subject, html, text }: IEmailRequest) => {
       html: html || text,
     })
     .then(() => {
-      console.log("email send with sucess");
+      console.log("E-mail enviado com sucesso!");
     })
     .catch((error) => {
-      throw new AppError(`An error has occurred ${error}`, 403);
+      throw new AppError(`Ocorreu um erro ${error}`, 403);
     });
 };
 
-export default sendEmail;
