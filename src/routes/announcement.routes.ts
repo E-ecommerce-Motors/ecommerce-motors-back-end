@@ -5,6 +5,7 @@ import { deleteAnnouncementController } from "../controllers/announcements/delet
 import { listAnnouncementController } from "../controllers/announcements/listAnnouncement.controller";
 import { idExist } from "../middlewares/ensure.middleware";
 import { createCommentController } from "../controllers/comments/createComments.controller";
+import { retireAnnouncementController } from "../controllers/announcements/retireAnnouncement.controller";
 
 const routes = Router();
 
@@ -13,6 +14,7 @@ export const announcementRoutes = () => {
   routes.patch("/:id", idExist, updateAnnouncementController);
   routes.delete("/:id", idExist, deleteAnnouncementController);
   routes.get("", listAnnouncementController);
+  routes.get("/:id", retireAnnouncementController);
 
   return routes;
 };
