@@ -6,6 +6,7 @@ import { sessionRoutes } from "./session.routes";
 import { commentRoutes } from "./comments.routes";
 import { imagesRoutes } from "./imagesAnnouncement.routes";
 import { recoveryPasswordRoutes } from "./recoveryPassword.routes";
+import { addressRoutes } from "./address.routes";
 
 export const appRoutes = (app: Express) => {
   app.use("/announcements", announcementRoutes());
@@ -14,5 +15,6 @@ export const appRoutes = (app: Express) => {
   app.use("/announcements", commentRoutes());
   app.use("/announcements", imagesRoutes());
   app.use("/recovery", recoveryPasswordRoutes())
+  app.use("/address", addressRoutes)
   app.use(handleErrorMiddleware);
 };
