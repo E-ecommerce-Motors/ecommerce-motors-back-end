@@ -14,7 +14,7 @@ export const appRoutes = (app: Express) => {
   app.use("/session", sessionRoutes());
   app.use("/announcements", commentRoutes());
   app.use("/announcements", imagesRoutes());
-  app.use("/recovery", recoveryPasswordRoutes())
-  app.use("/address", addressRoutes)
+  app.use("/recovery", recoveryPasswordRoutes());
+  app.use("/address", addressRoutes());
   app.use(handleErrorMiddleware);
 };
