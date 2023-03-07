@@ -16,7 +16,8 @@ export const recoveryPasswordService = async (email: string) => {
   if (!user) {
     throw new AppError("Usuário não encontrado")
   }
-  const newPassword = Math.floor((1 + Math.random()) * 0x10000)
+
+  const newPassword = Math.floor((1 + Math.random()) * 0x1000000)
     .toString(16)
     .substring(1)
 
@@ -24,9 +25,9 @@ export const recoveryPasswordService = async (email: string) => {
 
   await prisma.user.update({ where: { id: user.id }, data: { password: passworHash } })
 
-  const html = htmlBody(newPassword, "Sua nova senha é:")
+  const html = htmlBody(newPassword, "Sua nova senha nova chegou!")
 
-  await sendEmail({ to: email, subject: "Sua nova senha é", html })
+  await sendEmail({ to: email, subject: "Sua nova senha nova chegou!", html })
 
   return true
 };
