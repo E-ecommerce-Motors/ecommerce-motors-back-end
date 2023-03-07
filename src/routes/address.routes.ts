@@ -7,7 +7,7 @@ const routes = Router()
 
 export const addressRoutes = () => {
   routes.post("", verifyAuthUserMiddleware, addressCreateController);
-  routes.patch("", verifyAuthUserMiddleware, addressUpdateController);
+  routes.patch("/:id", verifyAuthUserMiddleware, addressUpdateController);
 
   return routes;
 };
