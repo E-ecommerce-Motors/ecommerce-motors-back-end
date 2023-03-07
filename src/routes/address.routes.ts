@@ -6,7 +6,7 @@ import { verifyAuthUserMiddleware } from "../middlewares/verifyAuthUser.middlewa
 const routes = Router()
 
 export const addressRoutes = () => {
-  routes.post("", verifyAuthUserMiddleware, addressCreateController);
+  routes.post("", addressCreateController);
   routes.patch("/:id", verifyAuthUserMiddleware, addressUpdateController);
 
   return routes;
