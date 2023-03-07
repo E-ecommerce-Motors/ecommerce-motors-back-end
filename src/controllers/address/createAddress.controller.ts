@@ -6,7 +6,9 @@ export const addressCreateController = async (req: Request, res: Response) => {
 
         const addressData: Address = req.body;
 
-        const newAddress = await addressCreateService(addressData);
+        const userId = req.user.id;
+
+        const newAddress = await addressCreateService(addressData, userId);
 
         res.status(201).json(newAddress);
 
