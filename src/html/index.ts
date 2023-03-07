@@ -22,6 +22,9 @@ export function htmlBody(
      <body style="margin: 0; padding: 0; ">
           <!-- HEADER -->
            <table bgcolor="#495057" align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+               <td alD7234Dign="center" height="200">
+                    <img src="https://ik.imagekit.io/sd2vgrkih/motorshop-branding-logo.png?ik-sdk-version=javascript-1.4.3&updatedAt=1678152900166" width="50%" alt="Kenzie Love" style="display: flex; margin: 0 auto" />
+               </td>
              
                <!-- MAIN BODY -->
                <tr>
