@@ -1,5 +1,14 @@
 import { type_account_options } from "@prisma/client";
 
+export interface IAddress {
+    cep: string;
+    state: string;
+    city: string;
+    street: string;
+    number: number;
+    complement?: string;
+}
+
 export interface IUserRequest {
     name: string,
     email: string,
@@ -12,6 +21,7 @@ export interface IUserRequest {
     password: string,
     createdAt?: Date,
     updatedAt?: Date
+    Address: IAddress;
 }
 
 export interface IUserUpdate {
