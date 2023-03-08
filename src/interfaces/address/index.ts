@@ -1,4 +1,4 @@
-interface IAddress {
+export interface IAddress {
     cep: string;
     state: string;
     city: string;
@@ -8,7 +8,7 @@ interface IAddress {
     userId: number;
 }
 
-interface AddressUpdate {
+export interface IAddressUpdate {
     cep?: string;
     state?: string;
     city?: string;
@@ -17,7 +17,3 @@ interface AddressUpdate {
     complement?: string;
 }
 
-export {
-    IAddress,
-    AddressUpdate
-}
