@@ -21,7 +21,7 @@ export interface IUserRequest {
     password: string,
     createdAt?: Date,
     updatedAt?: Date
-    Address: IAddress;
+    address: IAddress;
 }
 
 export interface IUserUpdate {

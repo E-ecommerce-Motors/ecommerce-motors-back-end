@@ -51,7 +51,7 @@ model Address {
   state String
   city String
   street String
-  number Int
+  number String
   complement String
   User User? 
 }
