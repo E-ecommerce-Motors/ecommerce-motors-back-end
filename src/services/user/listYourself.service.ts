@@ -4,7 +4,7 @@ export const listYourselfService = async (id: number) => {
 
 
   const user = await prisma.user.findUnique({
-    where: { id },
+    where: { id }
   })
 
   return user

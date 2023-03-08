@@ -4,6 +4,8 @@ import { IUserRequest } from "../../interfaces/user"
 import { prisma } from "../../utils/prisma"
 
 export const createUserService = async (data: IUserRequest) => {
+    const { address, ...newData } = data
+
     const findUser = await prisma.user.findUnique({
         where: {
             email: data.email,
@@ -13,6 +15,8 @@ export const createUserService = async (data: IUserRequest) => {
     if (findUser) {
         throw new AppError('E-mail já está cadastrado')
     }
+
+    const newAddress = await prisma.address.create({ data: address } as any)
 
     const user = await prisma.user.create({
         data: {
@@ -27,6 +31,7 @@ export const createUserService = async (data: IUserRequest) => {
             password: bcrypt.hashSync(data.password, 10),
             createdAt: new Date(),
             updatedAt: new Date(),
+            addressId: newAddress.id
         },
     })
     return { ...user, password: undefined }

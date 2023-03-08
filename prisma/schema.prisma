@@ -23,9 +23,11 @@ model User {
   password String 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  address Address?
   comments Comment[]
   announcement Announcement[]
+  Address Address @relation(fields: [addressId], references: [id], onDelete: Cascade)
+  addressId Int @unique
+
 }
 
 enum type_account_options{
@@ -48,10 +50,9 @@ model Address {
   state String
   city String
   street String
-  number Int
+  number String
   complement String
-  user User @relation(fields: [userId], references: [id])
-  userId Int @unique
+  User User? 
 }
 
 model Comment {

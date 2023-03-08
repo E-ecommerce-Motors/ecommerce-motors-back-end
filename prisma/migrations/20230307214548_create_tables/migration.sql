@@ -21,6 +21,7 @@ CREATE TABLE "User" (
     "password" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
+    "addressId" INTEGER NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -34,7 +35,6 @@ CREATE TABLE "Address" (
     "street" TEXT NOT NULL,
     "number" INTEGER NOT NULL,
     "complement" TEXT NOT NULL,
-    "userId" INTEGER NOT NULL,
 
     CONSTRAINT "Address_pkey" PRIMARY KEY ("id")
 );
@@ -88,10 +88,10 @@ CREATE TABLE "AnnouncementImages" (
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Address_userId_key" ON "Address"("userId");
+CREATE UNIQUE INDEX "User_addressId_key" ON "User"("addressId");
 
 -- AddForeignKey
-ALTER TABLE "Address" ADD CONSTRAINT "Address_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "User" ADD CONSTRAINT "User_addressId_fkey" FOREIGN KEY ("addressId") REFERENCES "Address"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Comment" ADD CONSTRAINT "Comment_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
