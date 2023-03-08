@@ -44,7 +44,6 @@ enum type_vehicle_options{
   car
   motorcycle
 }
-
 model Address {
   id Int @id @default(autoincrement())
   cep String
