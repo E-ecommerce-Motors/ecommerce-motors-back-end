@@ -60,7 +60,7 @@ model Comment {
   text String @db.Text
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  user User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId Int
   intermediarys Intermediary[]
 }
@@ -84,7 +84,7 @@ model Intermediary{
   id Int @id @default(autoincrement())
   announcement Announcement @relation(fields: [announcementId], references: [id])
   announcementId Int
-  comment Comment @relation(fields: [commentId], references: [id])
+  comment Comment @relation(fields: [commentId], references: [id], onDelete: Cascade)
   commentId Int
 }
 
