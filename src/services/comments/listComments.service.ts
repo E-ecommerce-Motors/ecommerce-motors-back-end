@@ -3,7 +3,7 @@ import { Comment } from "../../interfaces/announcement";
 
 const prisma = new PrismaClient();
 
-export const listComment = async (id: number) => {
+export const listCommentService = async (id: number) => {
   const intermediary = await prisma.intermediary.findMany({
     where: { announcementId: id },
     include: { comment: true },

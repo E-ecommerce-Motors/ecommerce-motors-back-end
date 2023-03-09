@@ -3,7 +3,7 @@ import { Comment } from "../../interfaces/announcement";
 
 const prisma = new PrismaClient();
 
-export const createComment = async (data: Comment, id: number) => {
+export const createCommentService = async (data: Comment, id: number) => {
   const comment = await prisma.comment.create({
     data,
   });
