@@ -19,9 +19,9 @@ export const userRoutes = () => {
     updateUserController
   );
   routes.delete("/:id",
-    verifyAuthUserMiddleware,
-    deleteUserController
-  )
+  verifyAuthUserMiddleware,
+  deleteUserController
+)
   routes.get("", verifyAuthUserMiddleware, listYourselfController);
 
   return routes;
