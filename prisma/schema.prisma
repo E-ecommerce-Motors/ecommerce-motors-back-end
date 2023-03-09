@@ -82,9 +82,9 @@ model Announcement {
 
 model Intermediary{
   id Int @id @default(autoincrement())
-  announcement Announcement @relation(fields: [announcementId], references: [id])
+  announcement Announcement @relation(fields: [announcementId], references: [id], onDelete: Cascade)
   announcementId Int
-  comment Comment @relation(fields: [commentId], references: [id])
+  comment Comment @relation(fields: [commentId], references: [id], onDelete: Cascade)
   commentId Int
 }
 
@@ -92,6 +92,6 @@ model AnnouncementImages{
   id Int @id @default(autoincrement())
   coverImage String @db.Text
   imageGallery String[]
-  announcement Announcement @relation(fields: [announcementId], references: [id])
+  announcement Announcement @relation(fields: [announcementId], references: [id], onDelete: Cascade)
   announcementId Int
 }
