@@ -1,13 +1,15 @@
 import { Request, Response } from "express";
 import { editCommentService } from "../../services/comments/editComment.service";
 
-const editCommentController = async (req: Request, res: Response) => {
-    const {id} = req.params
-    const {data} = req.body
+export const editCommentController = async (req: Request, res: Response) => {
+  const {id, commentId } = req.params;
+  const { data } = req.body;
 
-    const editedComment = await editCommentService(
-        Number(id), data
-      );
+  const updatedComment = await editCommentService(
+    data,
+    Number(id),
+    Number(commentId)
+  );
 
-      return res.status(200).json(editedComment)
-}
+  return res.status(200).json(updatedComment);
+};
