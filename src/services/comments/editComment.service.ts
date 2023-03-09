@@ -1,20 +1,25 @@
-import { AppError } from "../../errors/appError";
-import { prisma } from "../../utils/prisma";
+import { Request, Response } from "express";
+import { PrismaClient } from "@prisma/client";
+import { EditComment } from "../../interfaces/announcement";
 
-export const editCommentService = async (id: number, data: any) => {
-  const findComment = await prisma.comment.findUnique({
+const prisma = new PrismaClient();
+
+export const editCommentService = async (
+  data: EditComment,
+  id: number,
+  commentId: number
+) => {
+  const comment = await prisma.comment.update({
     where: {
-      id,
+      id: commentId,
     },
+    data,
   });
 
-  if (!findComment) {
-    throw new AppError("Comentário não encontrado", 404);
-  }
-
-//   const intermediaryUpdate = await prisma.intermediary.update({
-//     where{id: Number(id)} ,
-//     data,
+//   const intermediary = await prisma.intermediary.findMany({
+//     where: { announcementId: id },
+//     include: { comment: true },
 //   });
-//   return intermediaryUpdate;
+
+  return comment;
 };

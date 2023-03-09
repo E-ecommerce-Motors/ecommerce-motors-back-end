@@ -21,6 +21,12 @@ interface Comment {
   userId: number;
 }
 
+interface EditComment {
+  text: string;
+  userId: number;
+  id: number;
+}
+
 type announcementRequired =
   | "title"
   | "year"
@@ -63,4 +69,5 @@ export {
   AnnouncementCreateInput,
   type_announcement_options,
   type_vehicle_options,
+  EditComment
 };
