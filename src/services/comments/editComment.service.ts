@@ -11,16 +11,19 @@ export const editCommentService = async (
   announcementId: number,
   id: number
 ) => {
-
-  const findComment = await prisma.address.findUnique({
+  const findComment = await prisma.comment.findUnique({
     where: {
-            id
+      id: commentId,
     },
-})
+  });
 
-if (!findComment) {
-  throw new AppError("comment", 404)
-}
+  if (!findComment) {
+    throw new AppError("Comentário não existente", 404);
+  }
+
+  if (id !== findComment.userId) {
+    throw new AppError("Não autorizado", 401);
+  }
 
   const comment = await prisma.comment.update({
     where: {
@@ -28,11 +31,6 @@ if (!findComment) {
     },
     data,
   });
-
-//   const intermediary = await prisma.intermediary.findMany({
-//     where: { announcementId: id },
-//     include: { comment: true },
-//   });
 
   return comment;
 };
